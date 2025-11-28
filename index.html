@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="hu" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Számítás Kft. - Autószerviz és Műszaki Vizsga</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Poppins font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#1e40af', 
+                            light: '#3b82f6',
+                            orange: '#F59E0B', 
+                        }
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.1)',
+                        'strong': '0 10px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.1)',
+                        'card-hover': '0 20px 35px -5px rgba(30, 59, 138, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+                        'badge': '0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1)',
+                    },
+                    screens: {
+                        '3xl': '1600px', 
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-bg {
+            background-image: linear-gradient(to right, 
+                rgba(31, 41, 55, 0.98) 0%,   
+                rgba(31, 41, 55, 0.95) 45%,  
+                rgba(31, 41, 55, 0.70) 65%,  
+                rgba(31, 41, 55, 0.30) 100%  
+            ), url('https://media.gettyimages.com/id/2203070839/photo/car-service-workshop-with-cars-on-a-column-lifts.jpg?b=1&s=2048x2048&w=0&k=20&c=6sAO7nSHkiL19b7qx06gY7eZIORPe5K8mLNDMlE2Z5k=');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .grad-card-1 { background: linear-gradient(135deg, #37BCF7 0%, #1E3B8A 100%); }
+        .grad-card-2 { background: linear-gradient(135deg, #F69A15 0%, #F9776B 100%); }
+        .grad-card-3 { background: linear-gradient(135deg, #34D19F 0%, #38BFF1 100%); }
+        .grad-card-4 { background: linear-gradient(135deg, #F9776B 0%, #F69A15 100%); }
+        
+        .grad-cta { background: linear-gradient(135deg, #1E3B8A 0%, #37BCF7 100%); }
+
+        /* Sima zöld pipa stílus */
+        .check-simple {
+            color: #34D399; 
+            stroke-width: 3px;
+        }
+
+        /* Kompaktabb konténer szélesség */
+        .container-compact {
+            width: 100%;
+            margin-right: auto;
+            margin-left: auto;
+            padding-right: 1.5rem;
+            padding-left: 1.5rem;
+            max-width: 1280px; 
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-600 antialiased bg-white tracking-tight overflow-x-hidden">
+
+    <!-- Navigáció -->
+    <nav class="bg-white shadow-md fixed w-full z-50">
+        <div class="container-compact">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center gap-3 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <div class="text-[#1E3B8A]">
+                        <!-- ÚJ Vonalas villáskulcs ikon (Footerből átemelve) -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-10 h-10"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                    </div>
+                    <div class="leading-tight">
+                        <span class="block text-2xl font-black text-[#1E3B8A] uppercase tracking-tight">Számítás</span>
+                        <span class="block text-base font-bold text-slate-700">Kft.</span>
+                    </div>
+                </div>
+                
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="#services" class="text-slate-700 hover:text-brand-dark font-bold text-base transition duration-300">Szolgáltatások</a>
+                    <a href="#about" class="text-slate-700 hover:text-brand-dark font-bold text-base transition duration-300">Rólunk</a>
+                    <a href="#contact" class="text-slate-700 hover:text-brand-dark font-bold text-base transition duration-300">Kapcsolat</a>
+                    <a href="tel:+3614010206" class="bg-[#1E3B8A] text-white px-6 py-2.5 rounded-lg font-bold hover:bg-blue-900 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                        Hívjon Most
+                    </a>
+                </div>
+
+                <div class="lg:hidden">
+                    <button id="mobile-menu-btn" class="text-slate-700 focus:outline-none p-2">
+                        <i data-lucide="menu" class="w-8 h-8"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-slate-100 absolute w-full shadow-xl z-40">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#services" class="block px-4 py-3 font-semibold text-slate-700 hover:bg-slate-50 rounded-lg hover:text-brand-dark">Szolgáltatások</a>
+                <a href="#about" class="block px-4 py-3 font-semibold text-slate-700 hover:bg-slate-50 rounded-lg hover:text-brand-dark">Rólunk</a>
+                <a href="#contact" class="block px-4 py-3 font-semibold text-slate-700 hover:bg-slate-50 rounded-lg hover:text-brand-dark">Kapcsolat</a>
+                <a href="tel:+3614010206" class="block text-center bg-[#1E3B8A] text-white px-4 py-3 rounded-lg font-bold mt-4">Hívjon Most</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Szekció -->
+    <section class="hero-bg min-h-[85vh] flex items-center pt-20 relative text-white">
+        <div class="container-compact py-12">
+            <div class="max-w-4xl">
+                <div class="inline-flex items-center gap-2 bg-[#1E3A8A] px-4 py-1.5 rounded-full text-[#38BDF8] text-sm font-semibold mb-6 shadow-lg border border-[#38BDF8]/20">
+                    <i data-lucide="shield-check" class="w-4 h-4 text-[#38BDF8] fill-current"></i>
+                    Számíthat ránk – Több évtizedes tapasztalat
+                </div>
+
+                <h1 class="text-3xl lg:text-6xl font-extrabold leading-tight mb-6 drop-shadow-2xl tracking-tight">
+                    Megbízható Autószerviz és <br class="hidden lg:block"/> <span class="text-[#38BDF8]">Műszaki Vizsga</span> Budapesten
+                </h1>
+                
+                <p class="text-base lg:text-xl text-blue-50 mb-8 leading-relaxed font-normal drop-shadow-md max-w-3xl">
+                    Ingyenes átvizsgálás vizsga előtt • Rövid határidők • Versenyképes árak • <br class="hidden lg:block"> A vizsga megvárható
+                </p>
+
+                <div class="flex flex-wrap gap-6 mb-8">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded bg-[#38BCF8] shadow-lg"></div>
+                        <div>
+                            <p class="font-bold text-white text-base leading-tight">Korszerű Eszközök</p>
+                            <p class="text-sm text-blue-200">Digitális diagnosztika</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded bg-[#34D399] shadow-lg"></div>
+                        <div>
+                            <p class="font-bold text-white text-base leading-tight">Gyors Ügyintézés</p>
+                            <p class="text-sm text-blue-200">Rövid határidők</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded bg-[#F59E0B] shadow-lg"></div>
+                        <div>
+                            <p class="font-bold text-white text-base leading-tight">Szakértő Csapat</p>
+                            <p class="text-sm text-blue-200">Márkafüggetlen</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="tel:+3614010206" class="px-8 py-4 bg-[#F59E0B] text-white rounded-lg font-bold transition-all duration-300 shadow-strong hover:scale-105 hover:shadow-2xl flex items-center justify-center gap-2 text-lg">
+                        <i data-lucide="phone" class="w-5 h-5 fill-current"></i>
+                        Hívjon Most: (1) 401-0206
+                    </a>
+                    <a href="#contact" class="px-8 py-4 bg-white text-[#1E3B8A] rounded-lg font-bold hover:bg-slate-100 transition shadow-strong flex items-center justify-center gap-2 text-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 text-[#1E3B8A]">
+                            <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" />
+                            <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
+                        </svg>
+                        Kapcsolatfelvétel
+                    </a>
+                </div>
+                
+                <div class="mt-8 flex items-center gap-3 text-sm text-blue-200 font-medium drop-shadow">
+                    <div class="w-5 h-5 rounded-full bg-[#34D399] flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-3 h-3 text-white/70">
+                            <path fill-rule="evenodd" d="M19.916 4.626a.75.75 0 01.208 1.04l-9 13.5a.75.75 0 01-1.154.114l-6-6a.75.75 0 011.06-1.06l5.353 5.353 8.493-12.739a.75.75 0 011.04-.208z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    Rugalmas időpontfoglalás • Kiemelt kapcsolat minden biztosítóval
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Szolgáltatások (Solid háttér) -->
+    <section id="services" class="py-16 bg-slate-50 relative z-10">
+        <div class="container-compact">
+            <div class="text-center mb-12">
+                <div class="inline-block w-20 h-4 rounded-full bg-[#1E3B8A] mb-4"></div>
+                <h2 class="text-3xl lg:text-4xl font-extrabold text-slate-900 mb-3">Komplett Autóápolás Egy Helyen</h2>
+                <p class="text-slate-600 text-base max-w-2xl mx-auto">Márkafüggetlen szerviz, műszaki vizsga és kárrendezés professzionális csapattal</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Kártyák -->
+                <div class="bg-white p-8 rounded-2xl shadow-strong hover:shadow-card-hover hover:border-[#1E3B8A] hover:border hover:-translate-y-1 transition duration-300 h-full flex flex-col group relative overflow-hidden">
+                    <div class="w-16 h-16 grad-card-1 rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg transition-transform duration-300 group-hover:scale-110">
+                        <i data-lucide="clipboard-list" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">Műszaki Vizsga</h3>
+                    <ul class="space-y-3 text-sm text-slate-600 mb-6 flex-grow">
+                        <li class="flex gap-3 items-start">
+                            <i data-lucide="check" class="w-5 h-5 check-simple mt-0.5 shrink-0"></i>
+                            <span class="font-bold">Szinte minden járműkategória</span>
+                        </li>
+                        <li class="flex gap-3 items-start">
+                            <i data-lucide="check" class="w-5 h-5 check-simple mt-0.5 shrink-0"></i>
+                            <span>Személy- és kisteherautó, 4x4</span>
+                        </li>
+                        <li class="flex gap-3 items-start">
+                            <i data-lucide="check" class="w-5 h-5 check-simple mt-0.5 shrink-0"></i>
+                            <span>Motor, utánfutó</span>
+                        </li>
+                    </ul>
+                     <a href="#contact" class="text-[#1E3B8A] font-bold text-sm flex items-center gap-2 hover:gap-3 transition-all mt-auto group">
+                        Kapcsolatfelvétel <i data-lucide="arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-1"></i>
+                    </a>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-strong hover:shadow-card-hover hover:border-[#1E3B8A] hover:border hover:-translate-y-1 transition duration-300 h-full flex flex-col group relative overflow-hidden">
+                    <div class="w-16 h-16 grad-card-2 rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg transition-transform duration-300 group-hover:scale-110">
+                        <i data-lucide="wrench" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">Gépjármű Szerviz</h3>
+                    <ul class="space-y-3 text-sm text-slate-600 mb-6 flex-grow">
+                        <li class="flex gap-3 items-start">
+                            <i data-lucide="check" class="w-5 h-5 check-simple mt-0.5 shrink-0"></i>
+                            <span>Márkafüggetlen javítás</span>
+                        </li>
+                        <li class="flex gap-3 items-start">
+                            <i data-lucide="check" class="w-5 h-5 check-simple mt-0.5 shrink-0"></i>
+                            <span>Olajcsere és karbantartás</span>
+                        </li>
+                        <li class="flex gap-3 items-start">
+                            <i data-lucide="check" class="w-5 h-5 check-simple mt-0.5 shrink-0"></i>
+                            <span>Komplett diagnosztika</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="text-[#1E3B8A] font-bold text-sm flex items-center gap-2 hover:gap-3 transition-all mt-auto group">
+                        Kapcsolatfelvétel <i data-lucide="arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-1"></i>
+                    </a>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-strong hover:shadow-card-hover hover:border-[#1E3B8A] hover:border hover:-translate-y-1 transition duration-300 h-full flex flex-col group relative overflow-hidden">
+                    <div class="w-16 h-16 grad-card-3 rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg transition-transform duration-300 group-hover:scale-110">
+                        <i data-lucide="disc" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">Gumiszerelés</h3>
+                    <ul class="space-y-3 text-sm text-slate-600 mb-6 flex-grow">
+                        <li class="flex gap-3 items-start">
+                            <i data-lucide="check" class="w-5 h-5 check-simple mt-0.5 shrink-0"></i>
+                            <span>Professzionális szerelés</span>
+                        </li>
+                        <li class="flex gap-3 items-start">
+                            <i data-lucide="check" class="w-5 h-5 check-simple mt-0.5 shrink-0"></i>
+                            <span>Precíz centrírozás</span>
+                        </li>
+                        <li class="flex gap-3 items-start">
+                            <i data-lucide="check" class="w-5 h-5 check-simple mt-0.5 shrink-0"></i>
+                            <span>Gumijavítás és tárolás</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="text-[#1E3B8A] font-bold text-sm flex items-center gap-2 hover:gap-3 transition-all mt-auto group">
+                        Kapcsolatfelvétel <i data-lucide="arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-1"></i>
+                    </a>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-strong hover:shadow-card-hover hover:border-[#1E3B8A] hover:border hover:-translate-y-1 transition duration-300 h-full flex flex-col group relative overflow-hidden">
+                    <div class="w-16 h-16 grad-card-4 rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg transition-transform duration-300 group-hover:scale-110">
+                        <i data-lucide="shield-check" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">Kárrendezés</h3>
+                    <ul class="space-y-3 text-sm text-slate-600 mb-6 flex-grow">
+                        <li class="flex gap-3 items-start">
+                            <i data-lucide="check" class="w-5 h-5 check-simple mt-0.5 shrink-0"></i>
+                            <span>Teljes körű biztosítási ügyintézés</span>
+                        </li>
+                        <li class="flex gap-3 items-start">
+                            <i data-lucide="check" class="w-5 h-5 check-simple mt-0.5 shrink-0"></i>
+                            <span>Karosszéria és fényezés</span>
+                        </li>
+                        <li class="flex gap-3 items-start">
+                            <i data-lucide="check" class="w-5 h-5 check-simple mt-0.5 shrink-0"></i>
+                            <span>Kiemelt kapcsolat minden biztosítóval</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="text-[#1E3B8A] font-bold text-sm flex items-center gap-2 hover:gap-3 transition-all mt-auto group">
+                        Kapcsolatfelvétel <i data-lucide="arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kék Sáv Matrica (CTA) -->
+    <div class="container-compact py-10 relative z-10">
+        <div class="grad-cta rounded-3xl py-12 px-8 text-center text-white shadow-2xl relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+            
+            <div class="relative z-10">
+                <h3 class="text-2xl lg:text-4xl font-extrabold mb-4">Kérdése van szolgáltatásainkkal kapcsolatban?</h3>
+                <p class="text-blue-100 mb-8 font-medium text-lg">Hívjon minket bizalommal, vagy lépjen velünk kapcsolatba még ma!</p>
+                <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                    <a href="tel:+3614010206" class="bg-white text-[#1E3B8A] px-8 py-4 rounded-lg font-bold hover:bg-blue-50 transition shadow-lg flex items-center justify-center gap-2 transform hover:scale-105 text-lg">
+                        <i data-lucide="phone" class="w-5 h-5 fill-current"></i> (1) 401-0206
+                    </a>
+                    <a href="#contact" class="bg-transparent border-2 border-white px-8 py-4 rounded-lg font-bold hover:bg-white/10 transition shadow-lg flex items-center justify-center gap-2 text-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 text-white">
+                            <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" />
+                            <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
+                        </svg>
+                        Kapcsolatfelvétel
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rólunk / Miért válasszon minket (Solid fehér háttér) -->
+    <section id="about" class="py-16 bg-white relative z-10">
+        <div class="container-compact">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <!-- Kép -->
+                <div class="lg:w-1/2 relative">
+                    <img src="https://storage.googleapis.com/website-9odnrq2s2wrp9swwes4cu474ce/blog/750x500/power-train-warranty-blog.webp" alt="Autószerelő műhely" class="rounded-3xl shadow-strong w-full object-cover h-[500px]">
+                    
+                    <!-- 20+ Év Tapasztalat Matrica -->
+                    <div class="absolute -bottom-8 -right-8 bg-white p-6 rounded-3xl shadow-badge flex items-center gap-5 z-10">
+                        <div class="w-16 h-16 rounded-full bg-[#34D399] flex items-center justify-center shadow-lg shrink-0">
+                        </div>
+                        <div>
+                            <span class="block font-black text-slate-900 text-3xl leading-none mb-1">20+</span>
+                            <span class="text-slate-500 font-bold text-base whitespace-nowrap">Év tapasztalat</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Szöveg -->
+                <div class="lg:w-1/2">
+                    <div class="inline-block w-16 h-4 rounded-full bg-[#1E3B8A] mb-6"></div>
+                    
+                    <h2 class="text-3xl lg:text-4xl font-extrabold text-slate-900 mb-6 leading-tight">Precizitás és Megbízhatóság <br> Minden Munkában</h2>
+                    <p class="text-slate-600 mb-10 leading-relaxed text-lg">
+                        A Számítás Kft. több évtizedes szakmai tapasztalattal rendelkezik az autószerelés és műszaki vizsgáztatás területén. Korszerű eszközeinkkel és elkötelezett csapatunkkal garantáljuk járműve biztonságát.
+                    </p>
+
+                    <div class="space-y-8 mb-10">
+                        <div class="flex gap-5">
+                            <div class="w-14 h-14 bg-[#1E3A8A] rounded-xl shadow-lg shrink-0"></div>
+                            <div>
+                                <h4 class="font-bold text-xl text-slate-900 mb-1">Modern Felszerelés</h4>
+                                <p class="text-slate-600">Korszerű fékpadok, lengéscsillapító vizsgáló és prémium géppark.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-5">
+                            <div class="w-14 h-14 bg-[#38BDF8] rounded-xl shadow-lg shrink-0"></div>
+                            <div>
+                                <h4 class="font-bold text-xl text-slate-900 mb-1">Szakértő Csapat</h4>
+                                <p class="text-slate-600">Szakmai tapasztalat, folyamatos képzések és márkafüggetlen szerviztudás.</p>
+                            </div>
+                        </div>
+                         <div class="flex gap-5">
+                            <div class="w-14 h-14 bg-[#34D399] rounded-xl shadow-lg shrink-0"></div>
+                            <div>
+                                <h4 class="font-bold text-xl text-slate-900 mb-1">Rugalmas Kényelem</h4>
+                                <p class="text-slate-600">A műszaki vizsga a helyszínen megvárható, gyors ügyintézés.</p>
+                            </div>
+                        </div>
+                         <div class="flex gap-5">
+                            <div class="w-14 h-14 bg-[#F59E0B] rounded-xl shadow-lg shrink-0"></div>
+                            <div>
+                                <h4 class="font-bold text-xl text-slate-900 mb-1">Biztosítói Kapcsolatok</h4>
+                                <p class="text-slate-600">Kiemelt kapcsolat minden nagy biztosítóval, teljes körű kárrendezés.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="tel:+3614010206" class="inline-flex items-center gap-3 px-8 py-4 bg-[#1E3B8A] text-white rounded-lg font-bold hover:bg-blue-900 transition shadow-lg text-lg">
+                        <i data-lucide="phone" class="w-5 h-5 fill-current"></i>
+                        Hívjon Most: (1) 401-0206
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kapcsolat & Csapat (Solid háttér) -->
+    <section id="contact" class="py-16 bg-slate-50 relative z-20">
+        <div class="container-compact">
+            <div class="text-center mb-12">
+                 <div class="inline-block w-16 h-4 rounded-full bg-[#1E3B8A] mb-6"></div>
+                <h2 class="text-3xl lg:text-4xl font-extrabold text-slate-900 mb-4">Lépjen Kapcsolatba Szakértő Csapatunkkal</h2>
+                <p class="text-slate-600 text-lg">Kérdése van? Segítünk minden autóval kapcsolatos problémában!</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- Kártyák -->
+                <div class="bg-white rounded-2xl shadow-card-hover border border-slate-100 p-8 transform hover:-translate-y-1 transition duration-300 group">
+                    <div class="flex items-center gap-6 mb-8">
+                        <div class="w-16 h-16 grad-card-1 rounded-2xl flex items-center justify-center text-white shadow-lg transition-transform duration-300 group-hover:scale-110">
+                            <i data-lucide="wrench" class="w-8 h-8 fill-current"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-slate-900">Szerviz & Munkafelvétel</h3>
+                            <p class="text-slate-500 font-medium text-lg">Szladek Nándor</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-5">
+                        <div class="bg-blue-100/50 p-4 rounded-xl flex items-center gap-5 border border-blue-100">
+                            <i data-lucide="phone" class="w-6 h-6 text-[#1E3B8A] fill-current shrink-0"></i>
+                            <div>
+                                <p class="text-sm text-slate-500 uppercase font-bold tracking-wider">TELEFON</p>
+                                <a href="tel:+36704281140" class="text-slate-900 font-bold hover:text-[#38BDF8] transition text-lg">+36 (70) 428-1140</a>
+                            </div>
+                        </div>
+                        <div class="bg-blue-100/50 p-4 rounded-xl flex items-center gap-5 border border-blue-100">
+                            <i data-lucide="mail" class="w-6 h-6 text-[#1E3B8A] fill-current shrink-0"></i>
+                            <div>
+                                <p class="text-sm text-slate-500 uppercase font-bold tracking-wider">EMAIL</p>
+                                <a href="mailto:szerviz@szamitaskft.hu" class="text-slate-900 font-bold hover:text-[#38BDF8] transition text-base">szerviz@szamitaskft.hu</a>
+                            </div>
+                        </div>
+                        <div class="pt-4 flex gap-4 text-sm text-slate-500 font-medium">
+                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-[#38BDF8] shrink-0">
+                                <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 01.67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 11-.671-1.34l.041-.022zM12 9a.75.75 0 100-1.5.75.75 0 000 1.5z" clip-rule="evenodd" />
+                              </svg>
+                            <p>Műszaki vizsgával, javításokkal és általános szervizkérdésekkel kapcsolatban keressen.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-card-hover border border-slate-100 p-8 transform hover:-translate-y-1 transition duration-300 group">
+                     <div class="flex items-center gap-6 mb-8">
+                        <div class="w-16 h-16 grad-card-2 rounded-2xl flex items-center justify-center text-white shadow-lg transition-transform duration-300 group-hover:scale-110">
+                            <i data-lucide="shield-check" class="w-8 h-8 fill-current"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-slate-900">Kárrendezés & Alkatrész</h3>
+                            <p class="text-slate-500 font-medium text-lg">Lőrincz Zsolt</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-5">
+                        <div class="bg-orange-100/50 p-4 rounded-xl flex items-center gap-5 border border-orange-100">
+                            <i data-lucide="phone" class="w-6 h-6 text-[#F69A15] fill-current shrink-0"></i>
+                            <div>
+                                <p class="text-sm text-slate-500 uppercase font-bold tracking-wider">TELEFON</p>
+                                <a href="tel:+36704185542" class="text-slate-900 font-bold hover:text-[#F69A15] transition text-lg">+36 (70) 418-5542</a>
+                            </div>
+                        </div>
+                        <div class="bg-orange-100/50 p-4 rounded-xl flex items-center gap-5 border border-orange-100">
+                            <i data-lucide="mail" class="w-6 h-6 text-[#F69A15] fill-current shrink-0"></i>
+                            <div>
+                                <p class="text-sm text-slate-500 uppercase font-bold tracking-wider">EMAIL</p>
+                                <a href="mailto:alkatresz@szamitaskft.hu" class="text-slate-900 font-bold hover:text-[#F69A15] transition text-base">alkatresz@szamitaskft.hu</a>
+                            </div>
+                        </div>
+                        <div class="pt-4 flex gap-4 text-sm text-slate-500 font-medium">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-[#F69A15] shrink-0">
+                                <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 01.67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 11-.671-1.34l.041-.022zM12 9a.75.75 0 100-1.5.75.75 0 000 1.5z" clip-rule="evenodd" />
+                            </svg>
+                            <p>Biztosítási kárrendezéssel, karosszériával és alkatrész beszerzéssel kapcsolatban keressen.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <a href="tel:+3614010206" class="block max-w-xl mx-auto mt-12 bg-white rounded-2xl shadow-strong p-6 text-center border-t-4 border-[#1E3B8A] hover:shadow-2xl transition transform hover:-translate-y-1 group">
+                <div class="flex justify-center items-center gap-3 mb-2">
+                    <div class="text-[#F59E0B] group-hover:text-orange-600 transition">
+                         <i data-lucide="phone-call" class="w-8 h-8 fill-current"></i>
+                    </div>
+                </div>
+                <p class="text-3xl lg:text-4xl font-black text-[#1E3B8A] mb-2 group-hover:text-blue-800 transition whitespace-nowrap">(1) 401-0206</p>
+                <p class="text-slate-500 font-medium text-base">Hétfő-Csütörtök: 08:00 – 17:00 • Péntek: 08:00 – 15:00</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- Elérhetőség Szekció (Solid háttér) -->
+    <section class="py-16 bg-white relative z-30">
+        <div class="container-compact">
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/3">
+                    <div class="inline-block w-16 h-4 rounded-full bg-[#1E3B8A] mb-6"></div>
+                    
+                    <h2 class="text-3xl font-extrabold text-slate-900 mb-6">Könnyen Megközelíthető Helyen Várjuk</h2>
+                    <p class="text-slate-600 mb-8 text-base">Műhelyünk Budapest XVI. kerületében található, kiváló közlekedési kapcsolatokkal.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex gap-5">
+                            <div class="w-12 h-12 bg-[#1E3B8A] rounded-xl shadow-lg shrink-0"></div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-lg mb-1">Címünk</h4>
+                                <p class="text-slate-600 font-medium text-sm">1165 Budapest<br>Bökényföldi út 62.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex gap-5">
+                            <div class="w-12 h-12 bg-[#38BDF8] rounded-xl shadow-lg shrink-0"></div>
+                            <div class="w-full">
+                                <h4 class="font-bold text-slate-900 text-lg mb-2">Nyitvatartás</h4>
+                                <div class="grid grid-cols-[auto_1fr] gap-x-6 gap-y-1 text-slate-600 font-medium text-sm">
+                                    <span>Hétfő – Csütörtök:</span>
+                                    <span class="text-right sm:text-left">08:00 – 17:00</span>
+                                    <span>Péntek:</span>
+                                    <span class="text-right sm:text-left">08:00 – 15:00</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-5">
+                            <div class="w-12 h-12 bg-[#34D399] rounded-xl shadow-lg shrink-0"></div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-lg mb-1">Parkolás</h4>
+                                <p class="text-slate-600 font-medium text-sm">Ingyenes parkolási lehetőség a telephely területén</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4 mt-10">
+                        <a href="https://www.google.com/maps/dir//1165+Budapest,+B%C3%B6k%C3%A9nyf%C3%B6ldi+%C3%BAt+62" target="_blank" class="bg-[#1E3B8A] text-white px-6 py-3 rounded-lg hover:bg-blue-900 transition flex items-center justify-center gap-2 font-bold shadow-lg hover:shadow-xl hover:-translate-y-0.5">
+                            <i data-lucide="navigation" class="w-5 h-5"></i> Útvonaltervezés
+                        </a>
+                         <a href="tel:+3614010206" class="bg-slate-100 text-[#1E3B8A] px-6 py-3 rounded-lg hover:bg-slate-200 transition flex items-center justify-center gap-2 font-bold shadow-md hover:shadow-lg hover:-translate-y-0.5">
+                            <i data-lucide="phone" class="w-5 h-5"></i> Hívjon Most
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:w-2/3 h-[450px] bg-slate-100 rounded-3xl overflow-hidden shadow-strong border border-slate-200">
+                    <iframe 
+                        width="100%" 
+                        height="100%" 
+                        frameborder="0" 
+                        scrolling="no" 
+                        marginheight="0" 
+                        marginwidth="0" 
+                        src="https://maps.google.com/maps?q=1165+Budapest,+Bökényföldi+út+62&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                        title="Számítás Kft. Térkép"
+                        aria-label="Számítás Kft. elhelyezkedése a térképen"
+                    ></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer - Drasztikusan lezárva, minden felett -->
+    <footer class="bg-slate-900 text-slate-400 pt-16 pb-8 relative z-50" style="transform: translateZ(0);">
+        <div class="container-compact">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-10">
+                <!-- Col 1: Logó -->
+                <div class="space-y-6">
+                    <div class="flex items-center gap-2 text-white cursor-pointer" onclick="window.scrollTo(0,0)">
+                        <!-- Vonalas ikon (outline) -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                        <div class="leading-tight">
+                            <span class="block text-xl font-black uppercase tracking-tight text-white">SZÁMÍTÁS</span>
+                            <span class="block text-lg font-bold text-white">Kft.</span>
+                        </div>
+                    </div>
+                    <p class="text-sm leading-relaxed text-slate-300">
+                        Megbízható autószerviz és műszaki vizsgaállomás Budapesten több évtizedes tapasztalattal.
+                    </p>
+                    <p class="text-[#F59E0B] font-bold italic">"Számíthat ránk"</p>
+                </div>
+                <!-- Col 2: Gyors Linkek -->
+                <div>
+                    <h4 class="text-white font-bold mb-6 text-lg">Gyors Linkek</h4>
+                    <ul class="space-y-4 text-sm font-medium">
+                        <li><a href="#" class="hover:text-white transition flex items-center gap-2 hover:translate-x-1 duration-300"><i data-lucide="chevron-right" class="w-3 h-3 text-[#38BDF8]"></i> Főoldal</a></li>
+                        <li><a href="#services" class="hover:text-white transition flex items-center gap-2 hover:translate-x-1 duration-300"><i data-lucide="chevron-right" class="w-3 h-3 text-[#38BDF8]"></i> Szolgáltatások</a></li>
+                        <li><a href="#about" class="hover:text-white transition flex items-center gap-2 hover:translate-x-1 duration-300"><i data-lucide="chevron-right" class="w-3 h-3 text-[#38BDF8]"></i> Miért Mi</a></li>
+                        <li><a href="#contact" class="hover:text-white transition flex items-center gap-2 hover:translate-x-1 duration-300"><i data-lucide="chevron-right" class="w-3 h-3 text-[#38BDF8]"></i> Kapcsolat</a></li>
+                    </ul>
+                </div>
+                <!-- Col 3: Kapcsolat -->
+                <div>
+                    <h4 class="text-white font-bold mb-6 text-lg">Kapcsolat</h4>
+                    <ul class="space-y-5 text-sm font-medium">
+                        <li class="flex items-start gap-3">
+                            <!-- Vonalas térkép ikon, pötty nélkül -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#38BDF8] mt-0.5"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/></svg>
+                            <span>1165 Budapest,<br>Bökényföldi út 62.</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <!-- Vékony telefon ikon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#38BDF8]"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            <a href="tel:+3614010206" class="hover:text-white transition text-lg font-bold">(1) 401-0206</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <!-- Vonalas boríték ikon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#38BDF8]"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                            <a href="mailto:szerviz@szamitaskft.hu" class="hover:text-white transition">szerviz@szamitaskft.hu</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Col 4: Nyitvatartás -->
+                <div>
+                    <h4 class="text-white font-bold mb-6 text-lg">Nyitvatartás</h4>
+                    <ul class="space-y-3 text-sm mb-8 font-medium">
+                        <li class="flex justify-between border-b border-slate-800 pb-2"><span>Hétfő-Csütörtök:</span> <span class="text-white">08:00-17:00</span></li>
+                        <li class="flex justify-between border-b border-slate-800 pb-2"><span>Péntek:</span> <span class="text-white">08:00-15:00</span></li>
+                        <li class="flex justify-between text-slate-500 pt-1"><span>Szombat-Vasárnap:</span> <span>Zárva</span></li>
+                    </ul>
+                    <a href="tel:+3614010206" class="block w-full text-center bg-[#F59E0B] text-white py-4 rounded-lg font-bold hover:bg-orange-600 transition shadow-lg flex items-center justify-center gap-2 transform hover:-translate-y-0.5">
+                        <i data-lucide="phone" class="w-4 h-4"></i> Hívjon Most
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm gap-4 text-slate-500">
+                <p>&copy; 2025 Számítás Kft. Minden jog fenntartva.</p>
+                <div class="flex gap-6 font-medium">
+                    <a href="#services" class="hover:text-white transition">Szolgáltatások</a>
+                    <a href="#contact" class="hover:text-white transition">Kapcsolat</a>
+                    <a href="#about" class="hover:text-white transition">Miért Mi</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
