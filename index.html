@@ -38,12 +38,13 @@
     </script>
     <style>
         .hero-bg {
+            /* Háttérkép csere az új linkre (piros kocsis kép) */
             background-image: linear-gradient(to right, 
                 rgba(31, 41, 55, 0.98) 0%,   
                 rgba(31, 41, 55, 0.95) 45%,  
                 rgba(31, 41, 55, 0.70) 65%,  
                 rgba(31, 41, 55, 0.30) 100%  
-            ), url('https://media.gettyimages.com/id/2203070839/photo/car-service-workshop-with-cars-on-a-column-lifts.jpg?b=1&s=2048x2048&w=0&k=20&c=6sAO7nSHkiL19b7qx06gY7eZIORPe5K8mLNDMlE2Z5k=');
+            ), url('https://i.ibb.co/Frx1mY8/piros-kocsival-szerviz.png');
             background-size: cover;
             background-position: center;
         }
@@ -80,7 +81,7 @@
             <div class="flex justify-between items-center h-20">
                 <div class="flex items-center gap-3 cursor-pointer" onclick="window.scrollTo(0,0)">
                     <div class="text-[#1E3B8A]">
-                        <!-- ÚJ Vonalas villáskulcs ikon (Footerből átemelve) -->
+                        <!-- Vonalas villáskulcs ikon -->
                         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-10 h-10"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
                     </div>
                     <div class="leading-tight">
@@ -93,7 +94,8 @@
                     <a href="#services" class="text-slate-700 hover:text-brand-dark font-bold text-base transition duration-300">Szolgáltatások</a>
                     <a href="#about" class="text-slate-700 hover:text-brand-dark font-bold text-base transition duration-300">Rólunk</a>
                     <a href="#contact" class="text-slate-700 hover:text-brand-dark font-bold text-base transition duration-300">Kapcsolat</a>
-                    <a href="tel:+3614010206" class="bg-[#1E3B8A] text-white px-6 py-2.5 rounded-lg font-bold hover:bg-blue-900 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                    <!-- Mobil szám a fejlécben -->
+                    <a href="tel:+36704281140" class="bg-[#1E3B8A] text-white px-6 py-2.5 rounded-lg font-bold hover:bg-blue-900 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
                         Hívjon Most
                     </a>
                 </div>
@@ -110,7 +112,7 @@
                 <a href="#services" class="block px-4 py-3 font-semibold text-slate-700 hover:bg-slate-50 rounded-lg hover:text-brand-dark">Szolgáltatások</a>
                 <a href="#about" class="block px-4 py-3 font-semibold text-slate-700 hover:bg-slate-50 rounded-lg hover:text-brand-dark">Rólunk</a>
                 <a href="#contact" class="block px-4 py-3 font-semibold text-slate-700 hover:bg-slate-50 rounded-lg hover:text-brand-dark">Kapcsolat</a>
-                <a href="tel:+3614010206" class="block text-center bg-[#1E3B8A] text-white px-4 py-3 rounded-lg font-bold mt-4">Hívjon Most</a>
+                <a href="tel:+36704281140" class="block text-center bg-[#1E3B8A] text-white px-4 py-3 rounded-lg font-bold mt-4">Hívjon Most</a>
             </div>
         </div>
     </nav>
@@ -157,11 +159,13 @@
                 </div>
 
                 <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="tel:+3614010206" class="px-8 py-4 bg-[#F59E0B] text-white rounded-lg font-bold transition-all duration-300 shadow-strong hover:scale-105 hover:shadow-2xl flex items-center justify-center gap-2 text-lg">
+                    <!-- Mobil szám a Hero gombban -->
+                    <a href="tel:+36704281140" class="px-8 py-4 bg-[#F59E0B] text-white rounded-lg font-bold transition-all duration-300 shadow-strong hover:scale-105 hover:shadow-2xl flex items-center justify-center gap-2 text-lg">
                         <i data-lucide="phone" class="w-5 h-5 fill-current"></i>
-                        Hívjon Most: (1) 401-0206
+                        Hívás Most: +36 (70) 428-1140
                     </a>
                     <a href="#contact" class="px-8 py-4 bg-white text-[#1E3B8A] rounded-lg font-bold hover:bg-slate-100 transition shadow-strong flex items-center justify-center gap-2 text-lg">
+                        <!-- Ez az ikon (outline boríték) kerül majd le a kapcsolati szekcióba is -->
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 text-[#1E3B8A]">
                             <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" />
                             <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
@@ -176,7 +180,7 @@
                             <path fill-rule="evenodd" d="M19.916 4.626a.75.75 0 01.208 1.04l-9 13.5a.75.75 0 01-1.154.114l-6-6a.75.75 0 011.06-1.06l5.353 5.353 8.493-12.739a.75.75 0 011.04-.208z" clip-rule="evenodd" />
                         </svg>
                     </div>
-                    Rugalmas időpontfoglalás • Kiemelt kapcsolat minden biztosítóval
+                    Rugalmas időpontfoglalás • Kiemelt kapcsolat a nagy biztosítókkal
                 </div>
             </div>
         </div>
@@ -187,7 +191,8 @@
         <div class="container-compact">
             <div class="text-center mb-12">
                 <div class="inline-block w-20 h-4 rounded-full bg-[#1E3B8A] mb-4"></div>
-                <h2 class="text-3xl lg:text-4xl font-extrabold text-slate-900 mb-3">Komplett Autóápolás Egy Helyen</h2>
+                <!-- Marketing javított cím -->
+                <h2 class="text-3xl lg:text-4xl font-extrabold text-slate-900 mb-3">Teljes Körű Szerviz és Vizsgáztatás</h2>
                 <p class="text-slate-600 text-base max-w-2xl mx-auto">Márkafüggetlen szerviz, műszaki vizsga és kárrendezés professzionális csapattal</p>
             </div>
 
@@ -257,7 +262,7 @@
                         </li>
                         <li class="flex gap-3 items-start">
                             <i data-lucide="check" class="w-5 h-5 check-simple mt-0.5 shrink-0"></i>
-                            <span>Gumijavítás és tárolás</span>
+                            <span>Gumijavítás</span>
                         </li>
                     </ul>
                     <a href="#contact" class="text-[#1E3B8A] font-bold text-sm flex items-center gap-2 hover:gap-3 transition-all mt-auto group">
@@ -281,13 +286,65 @@
                         </li>
                         <li class="flex gap-3 items-start">
                             <i data-lucide="check" class="w-5 h-5 check-simple mt-0.5 shrink-0"></i>
-                            <span>Kiemelt kapcsolat minden biztosítóval</span>
+                            <span>Kiemelt kapcsolat a nagy biztosítókkal</span>
                         </li>
                     </ul>
                     <a href="#contact" class="text-[#1E3B8A] font-bold text-sm flex items-center gap-2 hover:gap-3 transition-all mt-auto group">
                         Kapcsolatfelvétel <i data-lucide="arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-1"></i>
                     </a>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ÚJ SZEKCIÓ: Műhely Galéria / Életképek -->
+    <section class="py-16 bg-white relative z-10">
+        <div class="container-compact">
+            <div class="text-center mb-12">
+                <div class="inline-block w-20 h-4 rounded-full bg-[#1E3B8A] mb-4"></div>
+                <h2 class="text-3xl lg:text-4xl font-extrabold text-slate-900 mb-3">Minőség és Szakértelem Munka Közben</h2>
+                <p class="text-slate-600 text-base max-w-2xl mx-auto">Bepillantás a műhelybe: korszerű géppark és precíz munkavégzés</p>
+            </div>
+
+            <!-- Bento Grid Layout: 1 Nagy + 4 Kicsi -->
+            <div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4 h-auto md:h-[600px]">
+                
+                <!-- 1. Nagy Kép (Bal oldal) -->
+                <!-- NEM KATTINTHATÓ: cursor-default -->
+                <div class="md:col-span-2 md:row-span-2 relative group overflow-hidden rounded-3xl shadow-strong cursor-default">
+                    <img src="https://i.ibb.co/3msfTjFb/vizsgaztatas-feher-kocsi.png" alt="Műszaki vizsgáztatás folyamata" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-8">
+                        <span class="text-white font-bold text-xl translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Személyautó vizsgáztatás</span>
+                    </div>
+                </div>
+
+                <!-- 2. Kép (Jobb Felső Bal) -->
+                <div class="md:col-span-1 md:row-span-1 relative group overflow-hidden rounded-3xl shadow-strong cursor-default">
+                    <img src="https://i.ibb.co/bR619hgS/vizsgasorures.png" alt="Üres vizsgasor" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-300"></div>
+                </div>
+
+                <!-- 3. Kép (Jobb Felső Jobb) -->
+                <div class="md:col-span-1 md:row-span-1 relative group overflow-hidden rounded-3xl shadow-strong cursor-default">
+                    <img src="https://i.ibb.co/ZRn1pfgt/szereles.png" alt="Autószerelés" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <span class="text-white font-semibold text-sm">Precíz szerelés</span>
+                    </div>
+                </div>
+
+                <!-- 4. Kép (Jobb Alsó Bal) -->
+                <div class="md:col-span-1 md:row-span-1 relative group overflow-hidden rounded-3xl shadow-strong cursor-default">
+                    <img src="https://i.ibb.co/ymD0XNML/motor-vizsga.png" alt="Motor vizsga" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <span class="text-white font-semibold text-sm">Motorkerékpár vizsga</span>
+                    </div>
+                </div>
+
+                <!-- 5. Kép (Jobb Alsó Jobb) -->
+                <div class="md:col-span-1 md:row-span-1 relative group overflow-hidden rounded-3xl shadow-strong cursor-default">
+                    <img src="https://i.ibb.co/dwjbdKR1/szerviz.png" alt="Szerviz csarnok" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                </div>
+
             </div>
         </div>
     </section>
@@ -301,7 +358,7 @@
                 <h3 class="text-2xl lg:text-4xl font-extrabold mb-4">Kérdése van szolgáltatásainkkal kapcsolatban?</h3>
                 <p class="text-blue-100 mb-8 font-medium text-lg">Hívjon minket bizalommal, vagy lépjen velünk kapcsolatba még ma!</p>
                 <div class="flex flex-col sm:flex-row gap-6 justify-center">
-                    <a href="tel:+3614010206" class="bg-white text-[#1E3B8A] px-8 py-4 rounded-lg font-bold hover:bg-blue-50 transition shadow-lg flex items-center justify-center gap-2 transform hover:scale-105 text-lg">
+                    <a href="tel:+36704281140" class="bg-white text-[#1E3B8A] px-8 py-4 rounded-lg font-bold hover:bg-blue-50 transition shadow-lg flex items-center justify-center gap-2 transform hover:scale-105 text-lg">
                         <i data-lucide="phone" class="w-5 h-5 fill-current"></i> (1) 401-0206
                     </a>
                     <a href="#contact" class="bg-transparent border-2 border-white px-8 py-4 rounded-lg font-bold hover:bg-white/10 transition shadow-lg flex items-center justify-center gap-2 text-lg">
@@ -321,15 +378,16 @@
         <div class="container-compact">
             <div class="flex flex-col lg:flex-row items-center gap-16">
                 <!-- Kép -->
-                <div class="lg:w-1/2 relative">
-                    <img src="https://storage.googleapis.com/website-9odnrq2s2wrp9swwes4cu474ce/blog/750x500/power-train-warranty-blog.webp" alt="Autószerelő műhely" class="rounded-3xl shadow-strong w-full object-cover h-[500px]">
+                <div class="lg:w-1/2 relative cursor-default">
+                    <!-- Kép csere az új linkre -->
+                    <img src="https://i.ibb.co/d4m7gkTv/nyitott-szerviz.png" alt="Autószerelő műhely" class="rounded-3xl shadow-strong w-full object-cover h-[500px]">
                     
-                    <!-- 20+ Év Tapasztalat Matrica -->
+                    <!-- 25+ Év Tapasztalat Matrica -->
                     <div class="absolute -bottom-8 -right-8 bg-white p-6 rounded-3xl shadow-badge flex items-center gap-5 z-10">
                         <div class="w-16 h-16 rounded-full bg-[#34D399] flex items-center justify-center shadow-lg shrink-0">
                         </div>
                         <div>
-                            <span class="block font-black text-slate-900 text-3xl leading-none mb-1">20+</span>
+                            <span class="block font-black text-slate-900 text-3xl leading-none mb-1">25+</span>
                             <span class="text-slate-500 font-bold text-base whitespace-nowrap">Év tapasztalat</span>
                         </div>
                     </div>
@@ -370,14 +428,14 @@
                             <div class="w-14 h-14 bg-[#F59E0B] rounded-xl shadow-lg shrink-0"></div>
                             <div>
                                 <h4 class="font-bold text-xl text-slate-900 mb-1">Biztosítói Kapcsolatok</h4>
-                                <p class="text-slate-600">Kiemelt kapcsolat minden nagy biztosítóval, teljes körű kárrendezés.</p>
+                                <p class="text-slate-600">Kiemelt kapcsolat a nagy biztosítókkal.</p>
                             </div>
                         </div>
                     </div>
 
-                    <a href="tel:+3614010206" class="inline-flex items-center gap-3 px-8 py-4 bg-[#1E3B8A] text-white rounded-lg font-bold hover:bg-blue-900 transition shadow-lg text-lg">
+                    <a href="tel:+36704281140" class="inline-flex items-center gap-3 px-8 py-4 bg-[#1E3B8A] text-white rounded-lg font-bold hover:bg-blue-900 transition shadow-lg text-lg">
                         <i data-lucide="phone" class="w-5 h-5 fill-current"></i>
-                        Hívjon Most: (1) 401-0206
+                        Hívjon Most: +36 (70) 428-1140
                     </a>
                 </div>
             </div>
@@ -415,7 +473,11 @@
                             </div>
                         </div>
                         <div class="bg-blue-100/50 p-4 rounded-xl flex items-center gap-5 border border-blue-100">
-                            <i data-lucide="mail" class="w-6 h-6 text-[#1E3B8A] fill-current shrink-0"></i>
+                            <!-- ÚJ Boríték ikon (ugyanaz mint fent) -->
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-[#1E3B8A]">
+                                <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" />
+                                <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
+                            </svg>
                             <div>
                                 <p class="text-sm text-slate-500 uppercase font-bold tracking-wider">EMAIL</p>
                                 <a href="mailto:szerviz@szamitaskft.hu" class="text-slate-900 font-bold hover:text-[#38BDF8] transition text-base">szerviz@szamitaskft.hu</a>
@@ -450,7 +512,11 @@
                             </div>
                         </div>
                         <div class="bg-orange-100/50 p-4 rounded-xl flex items-center gap-5 border border-orange-100">
-                            <i data-lucide="mail" class="w-6 h-6 text-[#F69A15] fill-current shrink-0"></i>
+                            <!-- ÚJ Boríték ikon (ugyanaz mint fent) -->
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-[#F69A15]">
+                                <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" />
+                                <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
+                            </svg>
                             <div>
                                 <p class="text-sm text-slate-500 uppercase font-bold tracking-wider">EMAIL</p>
                                 <a href="mailto:alkatresz@szamitaskft.hu" class="text-slate-900 font-bold hover:text-[#F69A15] transition text-base">alkatresz@szamitaskft.hu</a>
@@ -466,13 +532,14 @@
                 </div>
             </div>
 
-            <a href="tel:+3614010206" class="block max-w-xl mx-auto mt-12 bg-white rounded-2xl shadow-strong p-6 text-center border-t-4 border-[#1E3B8A] hover:shadow-2xl transition transform hover:-translate-y-1 group">
+            <!-- Központi szám doboz -->
+            <a href="tel:+36704281140" class="block max-w-xl mx-auto mt-12 bg-white rounded-2xl shadow-strong p-6 text-center border-t-4 border-[#1E3B8A] hover:shadow-2xl transition transform hover:-translate-y-1 group">
                 <div class="flex justify-center items-center gap-3 mb-2">
                     <div class="text-[#F59E0B] group-hover:text-orange-600 transition">
                          <i data-lucide="phone-call" class="w-8 h-8 fill-current"></i>
                     </div>
                 </div>
-                <p class="text-3xl lg:text-4xl font-black text-[#1E3B8A] mb-2 group-hover:text-blue-800 transition whitespace-nowrap">(1) 401-0206</p>
+                <p class="text-3xl lg:text-4xl font-black text-[#1E3B8A] mb-2 group-hover:text-blue-800 transition whitespace-nowrap">+36 (70) 428-1140</p>
                 <p class="text-slate-500 font-medium text-base">Hétfő-Csütörtök: 08:00 – 17:00 • Péntek: 08:00 – 15:00</p>
             </a>
         </div>
@@ -523,7 +590,7 @@
                         <a href="https://www.google.com/maps/dir//1165+Budapest,+B%C3%B6k%C3%A9nyf%C3%B6ldi+%C3%BAt+62" target="_blank" class="bg-[#1E3B8A] text-white px-6 py-3 rounded-lg hover:bg-blue-900 transition flex items-center justify-center gap-2 font-bold shadow-lg hover:shadow-xl hover:-translate-y-0.5">
                             <i data-lucide="navigation" class="w-5 h-5"></i> Útvonaltervezés
                         </a>
-                         <a href="tel:+3614010206" class="bg-slate-100 text-[#1E3B8A] px-6 py-3 rounded-lg hover:bg-slate-200 transition flex items-center justify-center gap-2 font-bold shadow-md hover:shadow-lg hover:-translate-y-0.5">
+                         <a href="tel:+36704281140" class="bg-slate-100 text-[#1E3B8A] px-6 py-3 rounded-lg hover:bg-slate-200 transition flex items-center justify-center gap-2 font-bold shadow-md hover:shadow-lg hover:-translate-y-0.5">
                             <i data-lucide="phone" class="w-5 h-5"></i> Hívjon Most
                         </a>
                     </div>
@@ -604,8 +671,8 @@
                         <li class="flex justify-between border-b border-slate-800 pb-2"><span>Péntek:</span> <span class="text-white">08:00-15:00</span></li>
                         <li class="flex justify-between text-slate-500 pt-1"><span>Szombat-Vasárnap:</span> <span>Zárva</span></li>
                     </ul>
-                    <a href="tel:+3614010206" class="block w-full text-center bg-[#F59E0B] text-white py-4 rounded-lg font-bold hover:bg-orange-600 transition shadow-lg flex items-center justify-center gap-2 transform hover:-translate-y-0.5">
-                        <i data-lucide="phone" class="w-4 h-4"></i> Hívjon Most
+                    <a href="tel:+36704281140" class="block w-full text-center bg-[#F59E0B] text-white py-4 rounded-lg font-bold hover:bg-orange-600 transition shadow-lg flex items-center justify-center gap-2 transform hover:-translate-y-0.5">
+                        <i data-lucide="phone" class="w-4 h-4 fill-current"></i> Hívjon Most
                     </a>
                 </div>
             </div>
