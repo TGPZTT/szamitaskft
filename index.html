@@ -37,16 +37,48 @@
         }
     </script>
     <style>
-        .hero-bg {
-            /* Háttérkép csere az új linkre (piros kocsis kép) */
-            background-image: linear-gradient(to right, 
-                rgba(31, 41, 55, 0.98) 0%,   
-                rgba(31, 41, 55, 0.95) 45%,  
-                rgba(31, 41, 55, 0.70) 65%,  
-                rgba(31, 41, 55, 0.30) 100%  
-            ), url('https://i.ibb.co/Frx1mY8/piros-kocsival-szerviz.png');
+        /* Hero háttér és effektek */
+        .hero-section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Háttérkép réteg - Homályosítva */
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://i.ibb.co/dwjbdKR1/szerviz.png'); /* szerviz.png */
             background-size: cover;
             background-position: center;
+            filter: blur(3px); /* Enyhe homályosítás a rossz minőség elrejtésére */
+            transform: scale(1.05); /* Hogy a blur szélei ne látsszanak */
+            z-index: 0;
+        }
+
+        /* Színátmenet réteg - A kép fölött */
+        .hero-section::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(to right, 
+                rgba(17, 24, 39, 0.9) 0%,   
+                rgba(17, 24, 39, 0.85) 50%, 
+                rgba(31, 41, 55, 0.7) 100%
+            );
+            z-index: 1;
+        }
+        
+        /* A tartalom a rétegek fölött legyen */
+        .hero-content {
+            position: relative;
+            z-index: 2;
         }
         
         .grad-card-1 { background: linear-gradient(135deg, #37BCF7 0%, #1E3B8A 100%); }
@@ -118,8 +150,8 @@
     </nav>
 
     <!-- Hero Szekció -->
-    <section class="hero-bg min-h-[85vh] flex items-center pt-20 relative text-white">
-        <div class="container-compact py-12">
+    <section class="hero-section min-h-[85vh] flex items-center pt-20 relative text-white">
+        <div class="container-compact py-12 hero-content">
             <div class="max-w-4xl">
                 <div class="inline-flex items-center gap-2 bg-[#1E3A8A] px-4 py-1.5 rounded-full text-[#38BDF8] text-sm font-semibold mb-6 shadow-lg border border-[#38BDF8]/20">
                     <i data-lucide="shield-check" class="w-4 h-4 text-[#38BDF8] fill-current"></i>
@@ -342,7 +374,8 @@
 
                 <!-- 5. Kép (Jobb Alsó Jobb) -->
                 <div class="md:col-span-1 md:row-span-1 relative group overflow-hidden rounded-3xl shadow-strong cursor-default">
-                    <img src="https://i.ibb.co/dwjbdKR1/szerviz.png" alt="Szerviz csarnok" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <!-- KÉPCSERE: Itt most a régi Hero kép van (piros-kocsival-szerviz-1.jpg) -->
+                    <img src="https://i.ibb.co/Xrj776Pg/piros-kocsival-szerviz-1.jpg" alt="Szerviz csarnok" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                 </div>
 
             </div>
@@ -702,6 +735,14 @@
                 menu.classList.add('hidden');
             });
         });
+
+        // Jobb klikk tiltása a képeken és a Hero háttéren
+        document.addEventListener('contextmenu', function(e) {
+            // Ellenőrizzük, hogy a kattintás célpontja kép-e vagy a Hero háttér része-e
+            if (e.target.tagName === 'IMG' || e.target.classList.contains('hero-bg') || e.target.closest('.hero-bg')) {
+                e.preventDefault();
+            }
+        }, false);
     </script>
 </body>
 </html>
